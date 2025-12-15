@@ -28,6 +28,24 @@ describe('Disney components test', () => {
     //     await disneymenu.shopClick();
     // })
 
+    it('Clicking magnifying glass, searching for mickey, & clear message', async () => {
+        await searchbar.searchClick();
+        await searchbar.searchForMickey();
+        await searchbar.resultsPage();
+    })
+
+    it('Clicking magnifying glass, searching in numbers', async () => {
+        await searchbar.searchClick();
+        await searchbar.searchForNumbers();
+        await searchbar.resultsPage();
+    })
+
+    it('Clicking magnifying glass, searching in special characters', async () => {
+        await searchbar.searchClick();
+        await searchbar.searchForSpcChar();
+        await searchbar.resultsPage();
+    })
+
     it('In characters section clicking Lightning McQueen should display him at the bottom', async () => {
         await characters.lightMqClick();
     })

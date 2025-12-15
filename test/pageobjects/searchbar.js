@@ -7,22 +7,51 @@ class searchbar extends Page {
     }
 
     get searchInput () {
-        return this.searchBtn;
+        return this.searchBtn();
     }
 
     get searchX () {
         return $('#searchBarClose');
     }
 
-
-
-    async search(query) {
-        await this.searchInput.setValue(query);
-        await expect(browser).toHaveUrlContaining('search');
+    get searchOpen () {
+        return $('#searchBarOpen');
     }
 
-    async searchResultsPage() {
-        await expect(browser).toHaveUrlContaining('search');
+
+    async searchClick () {
+        await this.searchOpen.click();
+        await this.searchBtn.click();
+    }
+
+    async searchForMickey () {
+        const searchBox = $("#searchBarNav");
+        await searchBox.setValue("Mickey");
+        await browser.keys('Enter');
+        await searchBox.clearValue();
+    }
+
+    async searchForNumbers () {
+        const searchBox = $("#searchBarNav");
+        await searchBox.setValue("8741579");
+        await browser.keys('Enter');
+    }
+
+    async searchForSpcChar () {
+        const searchBox = $("#searchBarNav");
+        await searchBox.setValue("&#(!&$)''");
+        await browser.keys('Enter');
+    }
+
+    async searchForNothing () {
+        const searchBox = $("#searchBarNav");
+        await searchBox.setValue("");
+        await browser.keys('Enter');
+    }
+
+    async resultsPage () {
+        const resultsSelector = await $('p[class="XpvMl ehPoD hfDkF TUFqZ KfQkg jsU ghObo wpXg XBBWG "]');
+        await expect(resultsSelector).toHaveText(expect.stringContaining('Results'));
     }
 }
 

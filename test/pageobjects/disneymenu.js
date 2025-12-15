@@ -26,18 +26,6 @@ class disneymenu extends Page {
         return $('a[data-testid="matterhorn-navigation-item-3"]');
     }
 
-    get searchBtn () {
-        return $('#searchBarNav');
-    }
-
-    get searchInput () {
-        return this.searchBtn;
-    }
-
-    get searchX () {
-        return $('#searchBarClose');
-    }
-
     async disneyClick () {
         await this.disneyBtn.click();
         const allHandles = await browser.getWindowHandles();
