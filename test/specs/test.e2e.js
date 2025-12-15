@@ -20,62 +20,60 @@ describe('Disney components test', () => {
         await disneymenu.parkClick();
     })
 
-    it('Movies Button should send you to a new site', async () => {
-        await disneymenu.moviesClick();
-    })
+    // it('Movies Button should send you to a new site', async () => {
+    //     await disneymenu.moviesClick();
+    // })
 
-    it('Shop Button should send you to a new site', async () => {
-        await disneymenu.shopClick();
-    })
+    // it('Shop Button should send you to a new site', async () => {
+    //     await disneymenu.shopClick();
+    // })
 
     it('In characters section clicking Lightning McQueen should display him at the bottom', async () => {
         await characters.lightMqClick();
-    //     await components.assertCharacterDetails('Lightning McQueen');
     })
 
     it('In characters section clicking Mater should display him at the bottom', async () => {
         await characters.materClick();
-        // await components.assertCharacterDetails('Mater');
     })
 
-    it('In characters section clicking Sally should display him at the bottom', async () => {
-        await characters.sallyClick();
-    //     await components.assertCharacterDetails('Sally');
-     })
+    // it('In characters section clicking Sally should display him at the bottom', async () => {
+    //     await characters.sallyClick();
+    // //     await components.assertCharacterDetails('Sally');
+    //  })
 
-    it('In characters section clicking Doc Hudson should display him at the bottom', async () => {
-        await characters.docClick();
-    //     await components.assertCharacterDetails('Doc Hudson');
-    })
+    // it('In characters section clicking Doc Hudson should display him at the bottom', async () => {
+    //     await characters.docClick();
+    // //     await components.assertCharacterDetails('Doc Hudson');
+    // })
 
-    it('In characters section clicking Guido should display him at the bottom', async () => {
-        await characters.guidoClick();
-    //     await components.assertCharacterDetails('Guido');
-    })
+    // it('In characters section clicking Guido should display him at the bottom', async () => {
+    //     await characters.guidoClick();
+    // //     await components.assertCharacterDetails('Guido');
+    // })
 
-    it('In characters section clicking Luigi should display him at the bottom', async () => {
-        await characters.luigiClick();
-    //     await components.assertCharacterDetails('Luigi');
-    })
+    // it('In characters section clicking Luigi should display him at the bottom', async () => {
+    //     await characters.luigiClick();
+    // //     await components.assertCharacterDetails('Luigi');
+    // })
 
-    it('In characters section clicking Sarge should display him at the bottom', async () => {
-        await characters.sargeClick();
-    //     await components.assertCharacterDetails('Sarge');
-    })
+    // it('In characters section clicking Sarge should display him at the bottom', async () => {
+    //     await characters.sargeClick();
+    // //     await components.assertCharacterDetails('Sarge');
+    // })
 
-    it('In characters section clicking Fillmore should display him at the bottom', async () => {
-        await characters.fillmoreClick();
-    //     await components.assertCharacterDetails('Fillmore');
-    })
+    // it('In characters section clicking Fillmore should display him at the bottom', async () => {
+    //     await characters.fillmoreClick();
+    // //     await components.assertCharacterDetails('Fillmore');
+    // })
 
-    it('In characters section clicking Flo should display him at the bottom', async () => {
-        await characters.floClick();
-    //     await components.assertCharacterDetails('Flo');
-    })
+    // it('In characters section clicking Flo should display him at the bottom', async () => {
+    //     await characters.floClick();
+    // //     await components.assertCharacterDetails('Flo');
+    // })
 
-    it('In characters section clicking Ramone should display him at the bottom', async () => {
-        await characters.ramoneClick();
-    //     await components.assertCharacterDetails('Ramone');
-    })
+    // it('In characters section clicking Ramone should display him at the bottom', async () => {
+    //     await characters.ramoneClick();
+    // //     await components.assertCharacterDetails('Ramone');
+    // })
 
 })

@@ -38,23 +38,6 @@ class disneymenu extends Page {
         return $('#searchBarClose');
     }
 
-    get arrowFuncNext () {
-        return $('button[data-direction="next"]');
-    }
-
-    get arrowFuncPrev () {
-        return $('button[data-direction="prev"]');
-    }
-
-
-    async nextBtn () {
-        await this.arrowFuncNext.click();
-    }
-
-    async prevBtn () {
-        await this.arrowFuncPrev.click();
-    }
-
     async disneyClick () {
         await this.disneyBtn.click();
         const allHandles = await browser.getWindowHandles();
@@ -77,14 +60,13 @@ class disneymenu extends Page {
         await this.shopBtn.click();
     }
 
-    async search(query) {
-        await this.searchInput.setValue(query);
-        await expect(browser).toHaveUrlContaining('search');
+    async isTBold(element) {
+        const fontWeight = await element.getCSSProperty('font-weight');
+        const numericWeight = parseInt(fontWeight.value);
+        return fontWeight.value === 'bold' || numericWeight >= 700;
     }
 
-    async searchResultsPage() {
-        await expect(browser).toHaveUrlContaining('search');
-    }
+ 
 }
 
 export default new disneymenu();
