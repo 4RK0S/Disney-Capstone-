@@ -48,12 +48,16 @@ async lightMqClick () {
         await this.lightMq.click();
         const ltmMqSelector = await $('p[id="selectedItem-0"]');
         await expect(ltmMqSelector).toHaveText(expect.stringContaining('Lightning McQueen, #95, is a hotshot rookie race car who loves going faster than fast. When he’s not racing, he spends his time in Radiator Springs with his best pal, Mater.'));
+        const ltMqSelector2 = await $('img[class="hsDdd BPJf beVFj dOZvi BmZon MTjhY zqmMu Gwosx "]');
+        await expect(ltMqSelector2).toBeDisplayed();
     }
 
     async materClick () {
         await this.mater.click();
         const materSelector = await $('p[id="selectedItem-1"]');
         await expect(materSelector).toHaveText(expect.stringContaining('Mater is the rustiest, trustiest tow truck in Radiator Springs. He loves tractor tippin’, helping out stranded cars, and most of all, hanging out with his best friend, Lightning McQueen. Mater is great at driving backwards, because he doesn’t need to know where he’s going as long as he knows where he’s been.'));
+        const materSelector2 = await $('img[class="hsDdd BPJf beVFj dOZvi BmZon MTjhY zqmMu Gwosx "]');
+        await expect(materSelector2).toBeDisplayed();
     }
 
     async sallyClick () {
