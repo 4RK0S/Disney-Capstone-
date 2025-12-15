@@ -27,6 +27,11 @@ class disneymenu extends Page {
     }
 
     async disneyClick () {
+        await this.disneyBtn.moveTo();
+        const disnB = await $('button[class="VZTD HNQqj fXQuq ibBnq UbGlr vsXdd KDIsc GYmxK OwSIu lwPSj PUdKg LBBrO ubOdK TaAzQ FfVOu zGMUT left"]');
+        const fontWeight = await disnB.getCSSProperty('font-weight');
+        expect(fontWeight.value).toBe(700);
+        
         await this.disneyBtn.click();
         const allHandles = await browser.getWindowHandles();
         await browser.switchToWindow(allHandles[allHandles.length - 1]);
@@ -34,6 +39,11 @@ class disneymenu extends Page {
     }
 
     async parkClick () {
+        await this.parkBtn.moveTo();
+        const parkB = await $('a[class="VZTD HNQqj fXQuq ibBnq UbGlr vsXdd KDIsc GYmxK OwSIu lwPSj PUdKg LBBrO ubOdK TaAzQ FfVOu zGMUT left"]');
+        const fontWeight = await parkB.getCSSProperty('font-weight');
+        expect(fontWeight.value).toBe(700);
+        
         await this.parkBtn.click();
         const allHandles = await browser.getWindowHandles();
         await browser.switchToWindow(allHandles[allHandles.length - 1]);
@@ -48,13 +58,13 @@ class disneymenu extends Page {
         await this.shopBtn.click();
     }
 
-    async isTBold(element) {
-        const fontWeight = await element.getCSSProperty('font-weight');
-        const numericWeight = parseInt(fontWeight.value);
-        return fontWeight.value === 'bold' || numericWeight >= 700;
+    async moreClick () {
+        const more = $('button[class="VZTD HNQqj fXQuq ibBnq UbGlr vsXdd KDIsc GYmxK OwSIu lwPSj PUdKg LBBrO ubOdK TaAzQ FfVOu zGMUT left"]');
+        const currentUrl = await browser.getUrl();
+        await expect(more).toBeClickable();
+        const newUrl = await browser.getUrl();
+        await expect(newUrl).toBe(currentUrl);
     }
-
- 
 }
 
 export default new disneymenu();

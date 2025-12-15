@@ -28,31 +28,58 @@ describe('Disney components test', () => {
     //     await disneymenu.shopClick();
     // })
 
-    it('Clicking magnifying glass, searching for mickey, & clear message', async () => {
+    it('Clicking more should not send you to another link', async () => {
+        await disneymenu.moreClick();
+    })
+
+    // it('Clicking magnifying glass, searching for mickey, & clear message', async () => {
+    //     await searchbar.searchClick();
+    //     await searchbar.searchForMickey();
+    //     await searchbar.resultsPage();
+    // })
+
+    // it('Clicking magnifying glass, searching in numbers', async () => {
+    //     await searchbar.searchClick();
+    //     await searchbar.searchForNumbers();
+    //     await searchbar.resultsPage();
+    // })
+
+    // it('Clicking magnifying glass, searching in special characters', async () => {
+    //     await searchbar.searchClick();
+    //     await searchbar.searchForSpcChar();
+    //     await searchbar.resultsPage();
+    // })
+
+    it('Clicking magnifying glass, searches long msg clicks stitch in menu', async () => {
         await searchbar.searchClick();
-        await searchbar.searchForMickey();
-        await searchbar.resultsPage();
+        await searchbar.searchForLongMsg();
     })
 
-    it('Clicking magnifying glass, searching in numbers', async () => {
+    it('Clicking magnifying glass, searching nothing', async () => {
         await searchbar.searchClick();
-        await searchbar.searchForNumbers();
-        await searchbar.resultsPage();
+        await searchbar.searchForNothing();
     })
 
-    it('Clicking magnifying glass, searching in special characters', async () => {
-        await searchbar.searchClick();
-        await searchbar.searchForSpcChar();
-        await searchbar.resultsPage();
-    })
+    // it('Clicking magnifying glass, searches "sti" clicks stitch in menu', async () => {
+    //     await searchbar.searchClick();
+    //     await searchbar.searchStitchMenu();
+    // })
 
-    it('In characters section clicking Lightning McQueen should display him at the bottom', async () => {
-        await characters.lightMqClick();
-    })
+    // it('Click magnifying glass, then clicking X', async () => {
+    //     await searchbar.searchClickX();
+    // })
 
-    it('In characters section clicking Mater should display him at the bottom', async () => {
-        await characters.materClick();
-    })
+    // it('Click magnifying glass, then verifying search is gone when typing', async () => {
+    //     await searchbar.searchBarNav();
+    // })
+
+    // it('In characters section clicking Lightning McQueen should display him at the bottom', async () => {
+    //     await characters.lightMqClick();
+    // })
+
+    // it('In characters section clicking Mater should display him at the bottom', async () => {
+    //     await characters.materClick();
+    // })
 
     // it('In characters section clicking Sally should display him at the bottom', async () => {
     //     await characters.sallyClick();
