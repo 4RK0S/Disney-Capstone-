@@ -215,14 +215,11 @@ class disneymenu extends opensite {
 
     async centuryClick() {
         await this.moviesBtn.moveTo();
+        await expect(this.centuryBtn).toHaveAttribute('href', 'https://www.20thcenturystudios.com/');
+        
         const centuryB = await $('a[class="VWQX UbGlr ibBnq bmjsw Xsujv lJgFA kpgVi utGN OwSIu oazfU McMna ubPuV pdYhu RBrva subItem"]');
         const fontWeight12 = await centuryB.getCSSProperty('font-weight');
         expect(fontWeight12.value).toBe(700);
-        
-        await this.centuryBtn.click();
-        const allHandles = await browser.getWindowHandles();
-        await browser.switchToWindow(allHandles[allHandles.length - 1]);
-        await expect(await browser.getUrl()).toBe('https://www.20thcenturystudios.com/');
     }
 
     async shopClick () {

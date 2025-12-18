@@ -66,8 +66,6 @@ class searchbar extends opensite {
     async searchStitchMenu () {
         const searchBox = $("#searchBarNav");
         await searchBox.setValue("sti");
-        // await searchBox.clearValue();
-        // await searchBox.setValue("sti");
         await this.liloStitch.click();
         const resultsSelector = await $('//h1[@class="product-name"]');
         await expect(resultsSelector).toHaveText(expect.stringContaining('Stitch Heart Charm by Pandora – Lilo & Stitch'));
