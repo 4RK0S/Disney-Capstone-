@@ -1,10 +1,10 @@
 import { $ } from '@wdio/globals'
-import Page from './page.js';
+import Url from './url.js';
 
-class HomePage extends Page {
+class Home extends Url {
     disney () {
         return super.disney('');
     }
 }
 
-export default new HomePage();
+export default new Home();

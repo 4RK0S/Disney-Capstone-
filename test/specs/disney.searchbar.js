@@ -1,30 +1,16 @@
 import { expect, browser } from '@wdio/globals'
-import homePage from '../pageobjects/home.page.js'
+import home from '../pageobjects/home.js'
 import searchbar from '../pageobjects/searchbar.js'
 
 describe('Disney searchbar components test', () => {
 
     beforeEach(async () => {
-        await homePage.disney();
+        await home.disney();
     });
-    
-    it('Clicking magnifying glass, searching for mickey, & clear message', async () => {
-        await searchbar.searchClick();
-        await searchbar.searchForMickey();
-        await searchbar.resultsPage();
-    })
-
-    it('Clicking magnifying glass, searching in numbers', async () => {
-        await searchbar.searchClick();
-        await searchbar.searchForNumbers();
-        await searchbar.resultsPage();
-    })
-
-    it('Clicking magnifying glass, searching in special characters', async () => {
-        await searchbar.searchClick();
-        await searchbar.searchForSpcChar();
-        await searchbar.resultsPage();
-    })
+    it('should search for multiple Disney searches successfully', async () => {
+        const characters = ["Mickey", "8741579", "&#(!&$)''"];
+        await searchbar.performSearch(characters);
+    });
 
     it('Clicking magnifying glass, searches long msg clicks stitch in menu', async () => {
         await searchbar.searchClick();

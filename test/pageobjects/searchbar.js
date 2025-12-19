@@ -1,5 +1,5 @@
 import { $, browser, expect } from '@wdio/globals'
-import opensite from './page.js';
+import opensite from './url.js';
 
 class searchbar extends opensite {
     get searchBtn () {
@@ -15,9 +15,20 @@ class searchbar extends opensite {
     }
 
     get liloStitch () {
-        return $('//a[@alt="Stitch Heart Charm by Pandora – Lilo & Stitch"]');
+        return $('//a[@href="https://www.disneystore.com/stitch-keychain-lilo-stitch-463510053995.html"]');
     }
 
+    async performSearch(searchTerms) {
+        const searchBox = await $("#searchBarNav");
+        for (const term of searchTerms) {
+            await this.searchOpen.click();
+            await searchBox.waitForDisplayed();
+            await searchBox.setValue(term);
+            await browser.keys('Enter');
+            await this.resultsPage();
+            await searchBox.clearValue();
+        }
+    }
 
     async searchClick () {
         await this.searchOpen.click();
@@ -31,30 +42,11 @@ class searchbar extends opensite {
         await expect(this.searchBtn).not.toBeDisplayed();
     }
 
-    async searchForMickey () {
-        const searchBox = $("#searchBarNav");
-        await searchBox.setValue("Mickey");
-        await browser.keys('Enter');
-        await searchBox.clearValue();
-    }
-
     async searchForLongMsg () {
         const searchBox = $("#searchBarNav");
         await searchBox.setValue("Hellooooooooooo thisss isss gonna be a really very long long super duper long message because why not");
         await browser.keys('Enter');
         await searchBox.clearValue();
-    }
-
-    async searchForNumbers () {
-        const searchBox = $("#searchBarNav");
-        await searchBox.setValue("8741579");
-        await browser.keys('Enter');
-    }
-
-    async searchForSpcChar () {
-        const searchBox = $("#searchBarNav");
-        await searchBox.setValue("&#(!&$)''");
-        await browser.keys('Enter');
     }
 
     async searchForNothing () {
@@ -65,10 +57,11 @@ class searchbar extends opensite {
 
     async searchStitchMenu () {
         const searchBox = $("#searchBarNav");
-        await searchBox.setValue("sti");
+        await searchBox.setValue("stitch");
         await this.liloStitch.click();
+        
         const resultsSelector = await $('//h1[@class="product-name"]');
-        await expect(resultsSelector).toHaveText(expect.stringContaining('Stitch Heart Charm by Pandora – Lilo & Stitch'));
+        await expect(resultsSelector).toHaveText(expect.stringContaining('Stitch Keychain – Lilo & Stitch'));
     }
 
     async searchBarNav () {
